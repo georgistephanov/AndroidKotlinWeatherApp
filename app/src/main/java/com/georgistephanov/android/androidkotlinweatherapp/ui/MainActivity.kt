@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import com.georgistephanov.android.androidkotlinweatherapp.R
 import com.georgistephanov.android.androidkotlinweatherapp.domain.Forecast
 import com.georgistephanov.android.androidkotlinweatherapp.domain.RequestForecastCommand
+import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,18 +16,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val forecastList = find<RecyclerView>(R.id.forecast_list)
         forecastList.layoutManager = LinearLayoutManager(this)
 
         doAsync {
             val result = RequestForecastCommand("2643741").execute()
             uiThread {
-                forecastList.adapter = ForecastListAdapter(result,
-                        object : ForecastListAdapter.OnItemClickListener {
-                            override fun invoke(forecast: Forecast) {
-                                toast(forecast.date)
-                            }
-                        })
+                forecastList.adapter = ForecastListAdapter(result) {
+                    //forecast -> toast(forecast.date)
+                    toast(it.date)
+                }
             }
         }
     }
