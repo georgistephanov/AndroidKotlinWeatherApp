@@ -1,4 +1,4 @@
-package com.georgistephanov.android.androidkotlinweatherapp.data
+package com.georgistephanov.android.androidkotlinweatherapp.data.db
 
 object CityForecastTable {
     val NAME = "CityForecast"

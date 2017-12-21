@@ -6,7 +6,7 @@ import java.net.URL
 /**
  * Created by Georgi on 15-Dec-17.
  */
-class ForecastRequest(val cityCode: String) {
+class ForecastRequest(val cityCode: Long) {
 
     companion object {
         private val APP_ID = "15646a06818f61f7b8d7823ca833e1ce&id=2643743"

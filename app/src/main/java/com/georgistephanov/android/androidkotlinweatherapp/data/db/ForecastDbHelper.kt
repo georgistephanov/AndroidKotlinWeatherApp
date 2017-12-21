@@ -1,4 +1,4 @@
-package com.georgistephanov.android.androidkotlinweatherapp.data
+package com.georgistephanov.android.androidkotlinweatherapp.data.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -6,7 +6,7 @@ import com.georgistephanov.android.androidkotlinweatherapp.ui.App
 import org.jetbrains.anko.db.*
 
 class ForecastDbHelper(context: Context = App.instance) : ManagedSQLiteOpenHelper(context,
-        ForecastDbHelper.DB_NAME, null, ForecastDbHelper.DB_VERSION) {
+        DB_NAME, null, DB_VERSION) {
 
     companion object {
         val DB_NAME = "forecast.db"
