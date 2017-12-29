@@ -7,9 +7,9 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 import com.georgistephanov.android.androidkotlinweatherapp.domain.Forecast as ModelForecast
 
-class ForecastDataMapper {
+class ServerDataMapper {
 
-    fun convertFromDataModel(zipCode: Long, forecast: ForecastResult) = with(forecast) {
+    fun convertToDomain(zipCode: Long, forecast: ForecastResult) = with(forecast) {
         ForecastList(zipCode, city.name, city.country, convertForecastListToDomain(list))
     }
 

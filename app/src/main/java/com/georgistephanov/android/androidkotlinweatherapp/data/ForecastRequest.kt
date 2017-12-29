@@ -3,10 +3,7 @@ package com.georgistephanov.android.androidkotlinweatherapp.data
 import com.google.gson.Gson
 import java.net.URL
 
-/**
- * Created by Georgi on 15-Dec-17.
- */
-class ForecastRequest(val cityCode: Long) {
+class ForecastByZipCodeRequest(val cityCode: Long, val gson: Gson = Gson()) {
 
     companion object {
         private val APP_ID = "15646a06818f61f7b8d7823ca833e1ce&id=2643743"
@@ -16,7 +13,7 @@ class ForecastRequest(val cityCode: Long) {
 
     fun execute(): ForecastResult {
         val forecastJsonStr = URL(COMPLETE_URL + cityCode).readText()
-        return Gson().fromJson(forecastJsonStr, ForecastResult::class.java)
+        return gson.fromJson(forecastJsonStr, ForecastResult::class.java)
     }
 
 }
