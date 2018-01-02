@@ -18,6 +18,8 @@ fun SQLiteDatabase.clear(tableName: String) {
     execSQL("delete from $tableName")
 }
 
+fun SelectQueryBuilder.byId(id: Long) = whereSimple("_id = ?", id.toString())
+
 fun <K, V : Any> Map<K, V?>.toVarargArray(): Array<out Pair<K, V>> =
         map({ Pair(it.key, it.value!!) }).toTypedArray()
 
